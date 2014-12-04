@@ -1,0 +1,223 @@
+
+Software Requirements Specification Document
+User Monitoring in Distributed Environments
+
+
+
+
+Department of Computer Science
+Kuwait University
+
+
+Submitted to Dr. Hussain Almohri as part of CS390 course project requirements
+
+Sunday, November 09, 2014
+
+
+Submitted by:
+1. Samar Mohammed.
+2. Ghessnah AlAjmi.
+3. Haya Alhussani. 
+Table of contents
+
+1.	Introduction	3
+2.	User Requirements	4
+3.	System Requirements Specification	5
+4.	Domain Requirements	6
+5.	Process Models  	7
+6.	System architecture	10
+
+ 
+1.	Introduction
+
+The Kidney is a bean shaped organ that is located below the rib cage. It is essential part in the urinary system because it keeps the blood stable to make the body function properly. Some of kidney’s functions are:
+1-It helps in filtering blood from excess organic molecules in a shape of urine.
+2- It keeps the levels of sodium, potassium, and phosphate stable.
+3- It produces two main hormones (vitamin D and erythropoietin).
+
+A kidney transplant procedure is a surgical procedure to place a functioning kidney from a donor into a person whose kidneys no longer function properly.
+It is well known that the two failed kidneys can be replaced by only one denoted kidney. One of the major problems that can face the patient is finding a suitable functioning kidney that matches his blood and tissue type.
+ As a result, we decided to simplify this operation by a website or an iPhone application. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.	User Requirements
+
+In this section we describe a set of high level user requirements that span all the features and quality characteristics of the system. The user requirements below are captured and agreed upon according to our interviews with the stakeholders. 
+In the following we enumerate all the user requirements that are collected for our project until the day this document is published.
+Functional:
+
+1-	Check if the patient's blood type matches the donator's blood type.
+2-	Check if the patient's blood type matches the donator's blood type.
+3-	Reset the user password if he/she forgot it.
+4-	Register a user and give him a unique account.
+5-	Log in to the system to view his/her profile.
+6-	Display doctor page for each doctor when he/she log in to the system.
+7-	Display patient page for each patient when he/she log in to the system.	
+8-	Display donator page for each donator when he/she log in to the system.
+9-	Delete patient information if he/she found a kidney. 
+10-	Delete donator information if he/she donate his/her kidney.
+11-	Email message for confirming the operation to patient.
+12-	Email message for confirming the operation to donator.
+13-	Set operation time for the patient and donator.
+14-	Contact the system admin if there is any inquires.
+Non-Functional:
+15-	Provide security to the system in order to protect the user's account.
+16-	Provide privacy for the users.
+17-	Friendly interface with simple design.
+	
+
+
+
+
+
+
+3.	System Requirements Specification
+
+Functional:
+1-	Check if the patient's and the donator's blood can be matched according to the following table:
+
+Recipient	Donor
+	O−	O+	A−	A+	B−	B+	AB−	AB+
+O−	Yes	No	No	No	No	No	No	No
+O+	Yes	Yes	No	No	No	No	No	No
+A−	Yes	No	Yes	No	No	No	No	No
+A+	Yes	Yes	Yes	Yes	No	No	No	No
+B−	Yes	No	No	No	Yes	No	No	No
+B+	Yes	Yes	No	No	Yes	Yes	No	No
+AB−	Yes	No	Yes	No	Yes	No	Yes	No
+AB+	Yes	Yes	Yes	Yes	Yes	Yes	Yes	Yes
+
+2-	The tissue type is a string of 10 different small letters and digits. A donor can be suitable for giving a kidney to a patient if both have same RH and either:
+a.	They have at least 8 common letters in their tissue type (whatever their positions is in the string), or they share a minimum 3-letter-sub-string.
+b.	They have at least 5 letters in an identical positions in their tissue type
+3-	Send an email for the user with a new random password then he/she can change it later.
+4-	Sign up will have different pages for each category (doctor, patient and donator):
+Doctor page: required id number, name, password and email.
+Donator page: required number of confirmation, blood type, tissue type, password and email.
+Patient page: required blood type, tissue type, password and email.
+5-	Ask the user for email and password in order to authenticate it with the database.
+6-	Show the matched list of patients with donators for the doctors.
+7-	Display his/her page and show if he/she accepted or not.
+8-	Display his/her page and show if he/she can donate or not 
+9-	Delete the patient information from the database if he/she found a kidney.
+10-	Delete the donator information from the database if he/she was matched.
+11-	Sending email message with a time of operation and date to the patient.
+12-	Sending email message with a time and date of operation to the donator.
+13-	Doctors put lists of available time and dates for the operation.
+14-	Users send e-mail to us if they have any inquires using contact us facility.
+Non-Functional:
+15-	Passwords are strong using uppercase letters, lowercase letters & numbers and Passwords are encrypted.
+16-	Private profiles so no one can see others’ information.
+17-	Simple interface and design for the site so it will be easy to use the website. 
+4.	Domain requirement
+
+1.	Patient information cannot be revealed to public, only doctors may be able to view them.
+2.	A transplant operation cannot be done for children with age less than 10 years.
+3.	It is not allowed to have two operations with the same doctor at the same time.
+
+
+
+
+
+5.	Process Models
+
+•	Log into the system by asking the user for email and password in order to authenticate it with the database.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+•	Sign up: Register a user and give him a unique account.
+
+ 
+
+
+
+
+
+
+
+
+
+
+•	Matching process: shows how kidneys will be matched together. 
+      
+
+
+
+
+
+
+
+
+
+6.	System architecture
+
+•	Client-server architecture
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+•	Layered architecture
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+•	Pipe and filter architecture
+ 
